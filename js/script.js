@@ -2,12 +2,25 @@
 // Chiedere all’utente di inserire una parola
 // Creare una funzione per capire se la parola inserita è palindroma
 let paliButtonDom = document.getElementById('paliButton');
+let wordOutputDom = document.getElementById('words_output');
+let userWord = document.getElementById('userWord');
+let wordList = [];
 paliButtonDom.addEventListener('click', function(){
-    let userWord = document.getElementById('userWord').value;
-    if (paliChecker(userWord)){
-        console.log('this word is palindrome');
-    } else {
+    if (paliChecker(userWord.value) && !alreadyTakenChecker(wordList, userWord.value)){
+        let liElementDom = document.createElement('li');
+        liElementDom.append(userWord.value);
+        wordOutputDom.appendChild(liElementDom);
+        userWord.classList.add('right');
+        userWord.classList.remove('wrong');
+        wordList.push(userWord.value)
+    } else if (!paliChecker(userWord.value)){
         console.log('this word is not palindrome');
+        userWord.classList.remove('right');
+        userWord.classList.add('wrong');
+    } else {
+        console.log('this word is already taken');
+        userWord.classList.remove('right');
+        userWord.classList.add('wrong');
     }
 });
 
@@ -28,6 +41,15 @@ function paliChecker(randomWord){
         return true;
     }
     return false;
+}
+
+function alreadyTakenChecker(pickedArray, pickedWord){
+    for (let i = 0; i < pickedArray.length; i++){
+        if (pickedArray[i] === pickedWord){
+            return true;
+        }
+    }
+    return false
 }
 
 // Pari e Dispari
