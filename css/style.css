@@ -57,7 +57,8 @@ button{
     transition: all 0.33s ease;
 }
 
-button.active{
+button.active,
+.finger-counter.active{
     background-color: rgb(141, 255, 141);
     border-color: green;
     color: orangered;
@@ -70,12 +71,14 @@ button.disabled{
 }
 
 button:not(:disabled):hover,
-.game_box:hover{
+.game_box:hover,
+.finger-counter:hover{
     transform: scale(1.1);
 }
 
 button:not(:disabled):active,
-.game_box:active{
+.game_box:active,
+.finger-counter:active{
     transform: scale(0.9);
 }
 
@@ -88,6 +91,7 @@ button:not(:disabled):active,
     display: flex;
     gap: 1rem;
     margin-bottom: 1rem;
+    justify-content: center;
 }
 
 .winner{
@@ -178,4 +182,21 @@ ul{
     font-size: 1.2rem;
     line-height: 2rem;
     text-transform: uppercase;
+}
+
+.finger-counter{
+    height: 70px;
+    aspect-ratio: 1 / 1;
+    border: 3px solid orangered;
+    border-radius: 1rem;
+    overflow: hidden;
+    background-color: orange;
+    transition: all 0.33s ease;
+    cursor: pointer;
+}
+
+.finger-counter img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
 }

@@ -7,28 +7,94 @@
 let evenOddButtonDom = document.getElementById('evenOddButton');
 let oddBtnDom = document.getElementById('odd_choice');
 let evenBtnDom = document.getElementById('even_choice');
+
 let userSide;
+let userNumber;
+
+let firstFinger = document.getElementById('finger-1');
+let secondFinger = document.getElementById('finger-2');
+let thirdFinger = document.getElementById('finger-3');
+let fourthFinger = document.getElementById('finger-4');
+let fifthFinger = document.getElementById('finger-5');
+
+let sideActivated = false;
+let valueActivated = false;
+
 let winnerBannerDom = document.getElementById('output');
-console.log('ciao');
 
 oddBtnDom.addEventListener('click', function(){
     oddBtnDom.classList.add('active');
     evenBtnDom.classList.remove('active');
-    evenOddButtonDom.removeAttribute('disabled');
-    evenOddButtonDom.classList.remove('disabled');
     userSide = true;
+    sideActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
 });
 
 evenBtnDom.addEventListener('click', function(){
     evenBtnDom.classList.add('active');
     oddBtnDom.classList.remove('active');
-    evenOddButtonDom.removeAttribute('disabled');
-    evenOddButtonDom.classList.remove('disabled');
     userSide = false;
+    sideActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
+
+});
+
+firstFinger.addEventListener('click', function(){
+    firstFinger.classList.add('active');
+    secondFinger.classList.remove('active');
+    thirdFinger.classList.remove('active');
+    fourthFinger.classList.remove('active');
+    fifthFinger.classList.remove('active');
+    userNumber = 1;
+    valueActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
+});
+
+secondFinger.addEventListener('click', function(){
+    firstFinger.classList.remove('active');
+    secondFinger.classList.add('active');
+    thirdFinger.classList.remove('active');
+    fourthFinger.classList.remove('active');
+    fifthFinger.classList.remove('active');
+    userNumber = 2;
+    valueActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
+});
+
+thirdFinger.addEventListener('click', function(){
+    firstFinger.classList.remove('active');
+    secondFinger.classList.remove('active');
+    thirdFinger.classList.add('active');
+    fourthFinger.classList.remove('active');
+    fifthFinger.classList.remove('active');
+    userNumber = 3;
+    valueActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
+});
+
+fourthFinger.addEventListener('click', function(){
+    firstFinger.classList.remove('active');
+    secondFinger.classList.remove('active');
+    thirdFinger.classList.remove('active');
+    fourthFinger.classList.add('active');
+    fifthFinger.classList.remove('active');
+    userNumber = 4;
+    valueActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
+});
+
+fifthFinger.addEventListener('click', function(){
+    firstFinger.classList.remove('active');
+    secondFinger.classList.remove('active');
+    thirdFinger.classList.remove('active');
+    fourthFinger.classList.remove('active');
+    fifthFinger.classList.add('active');
+    userNumber = 5;
+    valueActivated = true;
+    activeBtn(sideActivated, valueActivated, evenOddButtonDom);
 });
 
 evenOddButtonDom.addEventListener('click', function(){
-    let userNumber = parseInt(document.getElementById('userNumber').value);
     if (evenOddChecker(userNumber, userSide)){
         winnerBannerDom.innerHTML = 'Ez Win per nulla sudata-';
         winnerBannerDom.classList.add('winner');
@@ -47,11 +113,20 @@ function randomNumber(min, max){
 
 function evenOddChecker(userChoiceNumber, evenOrOdd){
     let botNumber = randomNumber(1, 5);
+    console.log(botNumber);
     let sum = botNumber + userChoiceNumber;
+    console.log(sum);
     if ((sum % 2 == 0 && evenOrOdd) || (sum % 2 != 0 && !evenOrOdd)){
         return true;
     }
     return false;
+}
+
+function activeBtn(firstValue, secondValue, disabledBtn){
+    if (firstValue == true && secondValue == true){
+    disabledBtn.removeAttribute('disabled');
+    disabledBtn.classList.remove('disabled');
+}
 }
 
 
