@@ -15,13 +15,11 @@ body{
     display: flex;
 }
 
-main{
+main, aside{
     text-align: center;
     padding: 2rem;
     margin: auto;
     height: 80%;
-    width: 50%;
-    max-width: 1000px;
     background-color: rgba(245, 245, 220, 0.9);
     border-radius: 1.3rem;
 }
@@ -71,11 +69,13 @@ button.disabled{
     color: gray;
 }
 
-button:not(:disabled):hover{
+button:not(:disabled):hover,
+.game_box:hover{
     transform: scale(1.1);
 }
 
-button:active{
+button:active,
+.game_box:active{
     transform: scale(0.9);
 }
 
@@ -115,4 +115,43 @@ input[type="number"]{
     background-color: lightcoral;
     color: red;
     border: 1px solid red;
+}
+
+.game_box{
+    aspect-ratio: 1 / 1;
+    height: 200px;
+    margin: 2rem auto;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.33s ease;
+}
+
+.game_box p{
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+#palindrome_btn{
+    background-image: url(../assets/sombrero.png);
+    border: 4px solid rgb(248, 0, 0);
+    background-color: rgb(243, 210, 26);
+
+}
+
+#evenodd_btn{
+    background-image: url(../assets/pari.png);
+    border: 4px solid rgb(81, 142, 255);
+    background-color: rgb(112, 255, 124);
+}
+
+a{
+    text-decoration: none;
+    color: white;
 }
