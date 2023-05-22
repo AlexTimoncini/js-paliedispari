@@ -59,6 +59,10 @@ button{
     transition: all 0.33s ease;
 }
 
+button.active{
+    background-color: rgb(141, 255, 141);
+}
+
 button:hover{
     transform: scale(1.1);
 }
