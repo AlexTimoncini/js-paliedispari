@@ -154,3 +154,28 @@ a{
 .wrong{
     border: 3px solid red;
 }
+
+h3{
+    padding: 2rem 0;
+}
+
+p.description{
+    line-height: 2rem;
+}
+
+#score{
+    color: brown;
+    margin: 3rem auto;
+    font-size: 2rem;
+    background-color: rgb(195, 195, 247);
+    display: inline-block;
+    padding: 2rem;
+    border-radius: 1rem;
+}
+
+ul{
+    list-style: none;
+    font-size: 1.2rem;
+    line-height: 2rem;
+    text-transform: uppercase;
+}
