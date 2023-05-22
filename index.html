@@ -19,11 +19,15 @@
         </div>
         <h2>Pari Dispari Game</h2>
         <div class="ivy_game_command">
-            <button id="odd_choice">Pari</button>
-            <button id="even_choice">Dispari</button>
+            <div class="flex">
+                <button id="odd_choice">Pari</button>
+                <button id="even_choice">Dispari</button>
+            </div>
             <input type="number" name="userNumber" id="userNumber" min="1" max="5">
-            <button id="evenOddButton" disabled>Gioca</button>
+            <button id="evenOddButton" disabled class="disabled">Gioca</button>
+            <p id="output"></p>
         </div>
+
     </main>
     <script src="./js/script.js"></script>
 </body>

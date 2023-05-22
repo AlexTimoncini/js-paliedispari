@@ -40,28 +40,34 @@ let evenOddButtonDom = document.getElementById('evenOddButton');
 let oddBtnDom = document.getElementById('odd_choice');
 let evenBtnDom = document.getElementById('even_choice');
 let userSide;
+let winnerBannerDom = document.getElementById('output');
 
 oddBtnDom.addEventListener('click', function(){
     oddBtnDom.classList.add('active');
     evenBtnDom.classList.remove('active');
-    evenOddButton.removeAttribute('disabled');
+    evenOddButtonDom.removeAttribute('disabled');
+    evenOddButtonDom.classList.remove('disabled');
     userSide = true;
 });
 
 evenBtnDom.addEventListener('click', function(){
     evenBtnDom.classList.add('active');
     oddBtnDom.classList.remove('active');
-    evenOddButton.removeAttribute('disabled');
+    evenOddButtonDom.removeAttribute('disabled');
+    evenOddButtonDom.classList.remove('disabled');
     userSide = false;
-
 });
 
 evenOddButtonDom.addEventListener('click', function(){
     let userNumber = parseInt(document.getElementById('userNumber').value);
     if (evenOddChecker(userNumber, userSide)){
-        console.log('Ez Win');
-    } else {
-        console.log('This is scripted')
+        winnerBannerDom.innerHTML = 'Ez Win per nulla sudata';
+        winnerBannerDom.classList.add('winner');
+        winnerBannerDom.classList.remove('loser');
+    } else { 
+        winnerBannerDom.innerHTML = 'This is totally scripted';
+        winnerBannerDom.classList.remove('winner');
+        winnerBannerDom.classList.add('loser');
     }
 
 });

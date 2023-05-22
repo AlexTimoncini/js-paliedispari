@@ -61,9 +61,17 @@ button{
 
 button.active{
     background-color: rgb(141, 255, 141);
+    border-color: green;
+    color: orangered;
 }
 
-button:hover{
+button.disabled{
+    background-color: rgb(207, 207, 207);
+    border-color: rgb(185, 185, 185);
+    color: gray;
+}
+
+button:not(:disabled):hover{
     transform: scale(1.1);
 }
 
@@ -74,4 +82,37 @@ button:active{
 .ivy_game_command{
     display: flex;
     flex-direction: column;
+}
+
+.flex {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+input[type="number"]{
+    border: none;
+    height: 50px;
+    font-size: 2rem;
+    text-align: center;
+    margin-bottom: 1.5rem;
+    border-radius: 1rem;
+}
+
+.winner{
+    margin-top: 1rem;
+    padding: 2rem;
+    font-size: 2rem;
+    background-color: lightgreen;
+    color: green;
+    border: 1px solid green;
+}
+
+.loser{
+    margin-top: 1rem;
+    padding: 2rem;
+    font-size: 2rem;
+    background-color: lightcoral;
+    color: red;
+    border: 1px solid red;
 }
