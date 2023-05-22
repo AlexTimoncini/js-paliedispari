@@ -6,24 +6,25 @@ let paliButtonDom = document.getElementById('paliButton');
 paliButtonDom.addEventListener('click', function(){
     userWord = document.getElementById('userWord').value;
     if (paliChecker(userWord)){
-        console.log('this word is plaindrome');
+        console.log('this word is palindrome');
     } else {
-        console.log('this word is not plaindrome');
+        console.log('this word is not palindrome');
     }
 });
-
-
 function paliChecker(randomWord){
     let splitWord = [];
+    let reverseSplitWord = [];
     let backWord = '';
     for (let i = 0; i < randomWord.length; i++){
-        splitWord.push(userWord.charAt(i));
+        splitWord.push(randomWord.charAt(i));
     }
-    splitWord.reverse();
+    while (splitWord.length > 0){
+        reverseSplitWord.push(splitWord.pop());
+    }
     for (let i = 0; i < randomWord.length; i++){
-        backWord += splitWord[i];
+        backWord += reverseSplitWord[i];
     }
-    if (randomWord === backWord){
+    if (randomWord.toLowerCase() === backWord.toLowerCase()){
         return true;
     }
     return false;
