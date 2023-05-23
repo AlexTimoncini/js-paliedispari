@@ -37,7 +37,7 @@ function scoreCalc(rigthWord){
 }
 
 function paliChecker(randomWord){
-    for (let i = 0; i < randomWord.length; i++){
+    for (let i = 0; i < randomWord.length / 2; i++){
         if (randomWord[i] != randomWord[randomWord.length - 1 - i]){
             return false;
         }
