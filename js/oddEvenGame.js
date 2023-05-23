@@ -5,8 +5,8 @@
 // Dichiariamo chi ha vinto.
 
 let evenOddButtonDom = document.getElementById('evenOddButton');
-let oddBtnDom = document.getElementById('odd_choice');
 let evenBtnDom = document.getElementById('even_choice');
+let oddBtnDom = document.getElementById('odd_choice');
 
 let userSide;
 let userNumber;
@@ -22,17 +22,17 @@ let valueActivated = false;
 
 let winnerBannerDom = document.getElementById('output');
 
-oddBtnDom.addEventListener('click', function(){
-    oddBtnDom.classList.add('active');
-    evenBtnDom.classList.remove('active');
+evenBtnDom.addEventListener('click', function(){
+    evenBtnDom.classList.add('active');
+    oddBtnDom.classList.remove('active');
     userSide = true;
     sideActivated = true;
     activeBtn(sideActivated, valueActivated, evenOddButtonDom);
 });
 
-evenBtnDom.addEventListener('click', function(){
-    evenBtnDom.classList.add('active');
-    oddBtnDom.classList.remove('active');
+oddBtnDom.addEventListener('click', function(){
+    oddBtnDom.classList.add('active');
+    evenBtnDom.classList.remove('active');
     userSide = false;
     sideActivated = true;
     activeBtn(sideActivated, valueActivated, evenOddButtonDom);

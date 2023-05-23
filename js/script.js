@@ -37,22 +37,12 @@ function scoreCalc(rigthWord){
 }
 
 function paliChecker(randomWord){
-    let splitWord = [];
-    let reverseSplitWord = [];
-    let backWord = '';
     for (let i = 0; i < randomWord.length; i++){
-        splitWord.push(randomWord.charAt(i));
+        if (randomWord[i] != randomWord[randomWord.length - 1 - i]){
+            return false;
+        }
     }
-    while (splitWord.length > 0){
-        reverseSplitWord.push(splitWord.pop());
-    }
-    for (let i = 0; i < randomWord.length; i++){
-        backWord += reverseSplitWord[i];
-    }
-    if (randomWord.toLowerCase() === backWord.toLowerCase()){
-        return true;
-    }
-    return false;
+    return true;
 }
 
 function alreadyTakenChecker(pickedArray, pickedWord){
